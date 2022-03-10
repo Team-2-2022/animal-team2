@@ -36,8 +36,7 @@ namespace AnimalAdoption.Web.Portal
         {
             services.Configure<Configuration>(Configuration);
 
-            _connectionString = Configuration.GetConnectionString("SqlConnectionString");//SET YOUR SQL DB CONNECTION STRING HERE
-
+            _connectionString = Configuration["SqlConnectionString"];//SET YOUR SQL DB CONNECTION STRING HERE
             services.AddDbContext<AnimalAdoptionContext>(options =>
             {
                 options.UseSqlServer(_connectionString);
