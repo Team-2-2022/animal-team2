@@ -65,4 +65,21 @@ jobs:
       with:
         app-name: ${{env.WEB_APP_NAME}}
         package: ./taa-portal
-
+        
+    - name: Set Web App ACR authentication
+      uses: Azure/appservice-settings@v1
+      with:
+        app-name:  ${{env.WEB_APP_NAME}}
+        app-settings-json: |
+          [
+            {
+              "name": "SqlConnectionString",
+              "value": ${{secrets.SqlConnectionString}}
+              "slotSetting": false
+            },
+            {
+              "name": "WEBSITE_NODE_DEFAULT_VERSION",
+              "value": "6.9.1",
+              "slotSetting": false
+            }
+          ]
