@@ -74,7 +74,7 @@ jobs:
           [
             {
               "name": "SqlConnectionString",
-              "value": "${{secrets.SqlConnectionString}}"
+              "value": "@Microsoft.KeyVault(SecretUri=https://animal0dev-app-kv.vault.azure.net/secrets/SqlConnectionString)",
               "slotSetting": false
             },
             {
